@@ -16,7 +16,16 @@ B = np.random.rand(5,5)
 def sigmoid(x):
     return 1 / (1 + math.exp(-x))
 
+#Implement the formula MX + B without using numpy 
+def matrix_multiplication_without_numpy(M, X, B):  
+    result = [[sum(a * b for a, b in zip(M_row, X_col)) for X_col in zip(*X)] for M_row in M]
+    result = [[result[i][j] + B[i][j] for j in range(len(result[0]))] for i in range(len(result))]
+    return result
 
+#Implement the formula MX + B using numpy
+def matrix_multiplication_with_numpy(M, X, B):
+    result = np.dot(M, X) + B
+    return result
 
 
 def f(x):
