@@ -6,7 +6,7 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-class Matrix(BaseModel):
+class MatrixInput(BaseModel):
     matrix: list
  
 #Initialise M & B as variable

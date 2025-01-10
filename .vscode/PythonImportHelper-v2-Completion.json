@@ -43,11 +43,11 @@
         "documentation": {}
     },
     {
-        "label": "Matrix",
+        "label": "MatrixInput",
         "kind": 6,
         "importPath": "test",
         "description": "test",
-        "peekOfCode": "class Matrix(BaseModel):\n    matrix: list\n#Initialise M & B as variable\nM = np.random.rand(5,5)\nB = np.random.rand(5,5)\ndef sigmoid(x):\n    return 1 / (1 + math.exp(-x))\n#Implement the formula MX + B without using numpy \ndef matrix_multiplication_without_numpy(M, X, B):  \n    result = [[sum(a * b for a, b in zip(M_row, X_col)) for X_col in zip(*X)] for M_row in M]",
+        "peekOfCode": "class MatrixInput(BaseModel):\n    matrix: list\n#Initialise M & B as variable\nM = np.random.rand(5,5)\nB = np.random.rand(5,5)\ndef sigmoid(x):\n    return 1 / (1 + math.exp(-x))\n#Implement the formula MX + B without using numpy \ndef matrix_multiplication_without_numpy(M, X, B):  \n    result = [[sum(a * b for a, b in zip(M_row, X_col)) for X_col in zip(*X)] for M_row in M]",
         "detail": "test",
         "documentation": {}
     },
@@ -92,7 +92,7 @@
         "kind": 5,
         "importPath": "test",
         "description": "test",
-        "peekOfCode": "app = FastAPI()\nclass Matrix(BaseModel):\n    matrix: list\n#Initialise M & B as variable\nM = np.random.rand(5,5)\nB = np.random.rand(5,5)\ndef sigmoid(x):\n    return 1 / (1 + math.exp(-x))\n#Implement the formula MX + B without using numpy \ndef matrix_multiplication_without_numpy(M, X, B):  ",
+        "peekOfCode": "app = FastAPI()\nclass MatrixInput(BaseModel):\n    matrix: list\n#Initialise M & B as variable\nM = np.random.rand(5,5)\nB = np.random.rand(5,5)\ndef sigmoid(x):\n    return 1 / (1 + math.exp(-x))\n#Implement the formula MX + B without using numpy \ndef matrix_multiplication_without_numpy(M, X, B):  ",
         "detail": "test",
         "documentation": {}
     },
