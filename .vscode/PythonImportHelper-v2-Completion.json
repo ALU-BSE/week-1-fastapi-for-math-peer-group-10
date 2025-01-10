@@ -1,1 +1,118 @@
+[
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "uvicorn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uvicorn",
+        "description": "uvicorn",
+        "detail": "uvicorn",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "MatrixInput",
+        "kind": 6,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "class MatrixInput(BaseModel):\n    matrix: list\n#Initialise M & B as variable\nM = np.random.rand(5,5)\nB = np.random.rand(5,5)\ndef sigmoid(x):\n    return 1 / (1 + math.exp(-x))\n#Implement the formula MX + B without using numpy \ndef matrix_multiplication_without_numpy(M, X, B):  \n    result = [[sum(a * b for a, b in zip(M_row, X_col)) for X_col in zip(*X)] for M_row in M]",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "sigmoid",
+        "kind": 2,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "def sigmoid(x):\n    return 1 / (1 + math.exp(-x))\n#Implement the formula MX + B without using numpy \ndef matrix_multiplication_without_numpy(M, X, B):  \n    result = [[sum(a * b for a, b in zip(M_row, X_col)) for X_col in zip(*X)] for M_row in M]\n    result = [[result[i][j] + B[i][j] for j in range(len(result[0]))] for i in range(len(result))]\n    return result\n#Implement the formula MX + B using numpy\ndef matrix_multiplication_with_numpy(M, X, B):\n    result = np.dot(M, X) + B",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "matrix_multiplication_without_numpy",
+        "kind": 2,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "def matrix_multiplication_without_numpy(M, X, B):  \n    result = [[sum(a * b for a, b in zip(M_row, X_col)) for X_col in zip(*X)] for M_row in M]\n    result = [[result[i][j] + B[i][j] for j in range(len(result[0]))] for i in range(len(result))]\n    return result\n#Implement the formula MX + B using numpy\ndef matrix_multiplication_with_numpy(M, X, B):\n    result = np.dot(M, X) + B\n    return result\n@app.post(\"/calculate/\")\ndef calculate(input: MatrixInput):",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "matrix_multiplication_with_numpy",
+        "kind": 2,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "def matrix_multiplication_with_numpy(M, X, B):\n    result = np.dot(M, X) + B\n    return result\n@app.post(\"/calculate/\")\ndef calculate(input: MatrixInput):\n    M = np.array(input.matrix)\n    X = np.random.rand(5,5) # Random 5x5 matrix for multiplication\n    B = np.random.rand(5,5) # Random 5x5 bias matrix\n    result_without_numpy = matrix_multiplication_without_numpy(M, X, B)\n    result_with_numpy = matrix_multiplication_with_numpy(M, X, B)",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "calculate",
+        "kind": 2,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "def calculate(input: MatrixInput):\n    M = np.array(input.matrix)\n    X = np.random.rand(5,5) # Random 5x5 matrix for multiplication\n    B = np.random.rand(5,5) # Random 5x5 bias matrix\n    result_without_numpy = matrix_multiplication_without_numpy(M, X, B)\n    result_with_numpy = matrix_multiplication_with_numpy(M, X, B)\n    sigmoid_result_without_numpy = [[sigmoid(x) for x in row] for row in result_without_numpy]\n    sigmoid_result_with_numpy = sigmoid(result_with_numpy)\n    return {\n        \"result_without_numpy\": sigmoid_result_without_numpy,",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "app = FastAPI()\nclass MatrixInput(BaseModel):\n    matrix: list\n#Initialise M & B as variable\nM = np.random.rand(5,5)\nB = np.random.rand(5,5)\ndef sigmoid(x):\n    return 1 / (1 + math.exp(-x))\n#Implement the formula MX + B without using numpy \ndef matrix_multiplication_without_numpy(M, X, B):  ",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "M",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "M = np.random.rand(5,5)\nB = np.random.rand(5,5)\ndef sigmoid(x):\n    return 1 / (1 + math.exp(-x))\n#Implement the formula MX + B without using numpy \ndef matrix_multiplication_without_numpy(M, X, B):  \n    result = [[sum(a * b for a, b in zip(M_row, X_col)) for X_col in zip(*X)] for M_row in M]\n    result = [[result[i][j] + B[i][j] for j in range(len(result[0]))] for i in range(len(result))]\n    return result\n#Implement the formula MX + B using numpy",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "B",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "B = np.random.rand(5,5)\ndef sigmoid(x):\n    return 1 / (1 + math.exp(-x))\n#Implement the formula MX + B without using numpy \ndef matrix_multiplication_without_numpy(M, X, B):  \n    result = [[sum(a * b for a, b in zip(M_row, X_col)) for X_col in zip(*X)] for M_row in M]\n    result = [[result[i][j] + B[i][j] for j in range(len(result[0]))] for i in range(len(result))]\n    return result\n#Implement the formula MX + B using numpy\ndef matrix_multiplication_with_numpy(M, X, B):",
+        "detail": "test",
+        "documentation": {}
+    }
+]
 
