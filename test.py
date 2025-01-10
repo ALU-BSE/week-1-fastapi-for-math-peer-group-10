@@ -27,19 +27,22 @@ def matrix_multiplication_with_numpy(M, X, B):
     result = np.dot(M, X) + B
     return result
 
+@app.post("/calculate/")
+def calculate(input: MatrixInput):
+    M = np.array(input.matrix)
+    X = np.random.rand(5,5) # Random 5x5 matrix for multiplication
+    B = np.random.rand(5,5) # Random 5x5 bias matrix
 
-def f(x):
-    pass
- 
-#Implement the formula MX + B
-#Have two function one using numpy and another not using numpy
-#Return 
+    result_without_numpy = matrix_multiplication_without_numpy(M, X, B)
+    result_with_numpy = matrix_multiplication_with_numpy(M, X, B)
 
-#initialize x as a 5 * 5 matrix
+    sigmoid_result_without_numpy = [[sigmoid(x) for x in row] for row in result_without_numpy]
+    sigmoid_result_with_numpy = sigmoid(result_with_numpy)
 
-#Make a call to the function
-
-#Recreate the function with the sigmoid Function
+    return {
+        "result_without_numpy": sigmoid_result_without_numpy,
+        "result_with_numpy": sigmoid_result_with_numpy,
+    }
 
 if __name__ == "__main__":
     uvicorn.run(app)
