@@ -8,13 +8,10 @@ app = FastAPI()
 
 class MatrixInput(BaseModel):
     matrix: list
- 
-#Initialise M & B as variable
-M = np.random.rand(5,5)
-B = np.random.rand(5,5)
 
-def sigmoid(x):
-    return 1 / (1 + math.exp(-x))
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the FastAPI app"}
 
 #Implement the formula MX + B without using numpy 
 def matrix_multiplication_without_numpy(M, X, B):  
@@ -43,6 +40,9 @@ def calculate(input: MatrixInput):
         "result_without_numpy": sigmoid_result_without_numpy,
         "result_with_numpy": sigmoid_result_with_numpy,
     }
+
+def sigmoid(x):
+    return 1 / (1 + math.exp(-x))
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
