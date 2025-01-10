@@ -18,6 +18,7 @@ def sigmoid(x):
 
 
 
+
 def f(x):
     pass
  
